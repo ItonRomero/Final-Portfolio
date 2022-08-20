@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/> 
+</head>
+<body>
+    
+        <div class="scroll-up-btn">
+            <i class="fas fa-angle-up"></i>
+        </div>
+        <nav class="navbar">
+            <div class="max-width">
+                <div class="logo"><a href="#">IT<span>ON</span></a></div>
+                <ul class="menu">
+                    <li><a href="#home" class="menu-btn">Home</a></li>
+                    <li><a href="#project" class="menu-btn">Portfolio</a></li>
+                    <li><a href="#services" class="menu-btn">Services</a></li>
+                    <li><a href="#about" class="menu-btn">About</a></li>
+                    <li><a href="#contact" class="menu-btn">Contact</a></li>
+                    <li><button id="light-mode-toggle" class="light-mode-toggle" ><i class="fa-solid fa-toggle-off" id="toggle-icon"></i></button></li>
+                </ul>
+                <div class="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <img src="" alt="">
+        </nav>
+    
+
+
+        
+          <!-- PORTFOLIO section start -->
+          <section class="project portfolio" id="project">
+            <div class="max-width">
+                <h2 class="title">My Projects</h2>
+                <div class="carousel owl-carousel">
+                    <div class="card">
+                        <div class="box">
+                            <img src="img/Portfolio-homepage.jpeg" alt="">
+                            <!-- <div class="text">My Portfolio</div>
+                            <div class="btn">
+                                <a href="#">View Details</a>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <img src="img/FasionWeb-project.jpeg" alt="">
+                            <!-- <div class="text">Fashion Website</div>
+                            <div class="btn">
+                                <a href="#">View Details</a>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <img src="img/Ecommerce-homepage.jpeg" alt="">
+                            <!-- <div class="text">Someone name</div>
+                            <div class="btn">
+                                <a href="#">View Details</a>
+                            </div> -->
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+    
+
+      
+
+
+
+         
+    
+      
+    
+      
+    
+      
+
+        
+    
+        <!-- footer section start -->
+        <footer>
+            <span>Created By <a href="https://www.codingnepalweb.com">Jayson Romero</a> | <span class="far fa-copyright"></span> 2022 All rights reserved.</span>
+        </footer>
+    
+
+   
+
+    <script>
+          //owl carousel script
+    $('.carousel').owlCarousel({
+
+      margin: 20,
+      loop: true,
+      autoplayTimeOut: 2000,
+      autoplayHoverPause: true,
+      responsive: {
+        0:{
+          items: 1,
+          nav: false
+        }
+      //   600:{
+      //     items: 2,
+      //      nav: false
+      //   },
+      //   1000:{
+      //     items: 2,
+      //     nav: false
+      //   }
+      }
+
+    });
+
+
+let lightMode = localStorage.getItem('lightMode'); 
+const lightModeToggle = document.querySelector('#light-mode-toggle');
+
+
+const enableLightMode = () => {
+  
+
+
+  document.body.classList.add('lightmode');
+ 
+
+  localStorage.setItem('lightMode', 'enabled');
+
+
+
+}
+
+
+const disableLightMode = () => {
+
+
+ 
+  document.body.classList.remove('lightmode');
+  
+  localStorage.setItem('lightMode', null);      
+
+
+
+}
+ 
+
+if (lightMode === 'enabled') {
+  enableLightMode();
+} else {
+  disableLightMode();
+}
+
+lightModeToggle.addEventListener('click', () => {
+  // get their darkMode setting
+  const toggleIcon = document.querySelector("#toggle-icon");
+  lightMode = localStorage.getItem('lightMode'); 
+ 
+  
+  // if it not current enabled, enable it
+  if (lightMode !== 'enabled' && toggleIcon.classList.contains("fa-toggle-off") ) {
+    enableLightMode();
+    toggleIcon.classList.remove("fa-toggle-off")
+    toggleIcon.classList.add("fa-toggle-on")
+
+   
+  // if it has been enabled, turn it off  
+  } else {  
+    disableLightMode();
+    toggleIcon.classList.remove("fa-toggle-on")
+    toggleIcon.classList.add("fa-toggle-off")
+  
+    
+  }
+});
+
+    </script>
+
+
+
+
+</body>
+</html>
