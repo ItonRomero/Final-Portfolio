@@ -61,14 +61,6 @@ $(document).ready(function(){
         0:{
           items: 1,
           nav: false
-        },
-        600:{
-          items: 2,
-          nav: false
-        },
-        1000:{
-          items: 3,
-          nav: false
         }
       }
 
@@ -157,4 +149,120 @@ function opentab(tabname) {
   }
   event.currentTarget.classList.add("active-link");
   document.getElementById(tabname).classList.add("active-tab");
+}
+
+
+
+const projects = [
+        {
+          id: 1,
+          title: "My Portfolio",
+          img1: "img/Portfolio-homepage.jpeg",
+          img2: "img/Portfolio-homepage.jpeg",
+          img3: "img/Portfolio-homepage.jpeg",
+          img4: "img/Portfolio-homepage.jpeg",
+          technologies: "FasionWeb",
+          desc: "FasionWeb",
+          category: "portfolio"         
+        },
+         {
+          id: 2,
+          title: "Ecommerce",
+          img1: "img/Ecommerce-homepage.jpeg",
+          img2: "img/Ecommerce-homepage.jpeg",
+          img3: "img/Ecommerce-homepage.jpeg",
+          img4: "img/Ecommerce-homepage.jpeg",
+          technologies: "FasionWeb",
+          desc: "FasionWeb",
+          category: "ecommerce"         
+        },
+         {
+          id: 3 ,
+          title: "Fashion Website",
+          img1: "img/FasionWeb-project.jpeg",
+          img2: "img/FasionWeb-project.jpeg",
+          img3: "img/FasionWeb-project.jpeg",
+          img4: "img/FasionWeb-project.jpeg",
+          technologies: "FasionWeb",
+          desc: "FasionWeb",
+          category: "landing-page"         
+        }
+        
+      
+      ];
+
+
+
+const projectSection  = document.querySelector(".projects-section")     
+const projectContainer = document.querySelector(".project-container")   
+const btnContainer = document.querySelector(".btn-container")
+
+
+
+
+//load items
+ window.addEventListener("DOMContentLoaded", function () {
+   displayProjectItems(projects);
+   displayCategoriesBtns();
+});
+
+ 
+
+
+
+
+
+function displayProjectItems(projectItems) {
+     let displayProjects = projectItems.map(function (item) {
+        console.log(item)
+
+        return `<div class="card">
+                    <div class="box">
+                        <img src=${item.img1} alt="test" class="photo" data-id=${item.id}/>
+                        <div class="text">${item.title}</div>
+                    </div>
+                </div>`;
+    });
+       displayProjects = displayProjects.join("")
+        projectSection.innerHTML = displayProjects
+      //  console.log(displayProjects)
+}
+
+
+function displayCategoriesBtns() {
+      const categories = projects.reduce(function(values,item){
+     if(!values.includes(item.category)){
+        values.push(item.category);
+      }
+      return values
+  },['all']
+  );
+
+  const categoryBtns = categories.map(function(category){
+      return`<button class="filter-btn" type="button" data-category=${category}>${category}</button>`
+  })
+  .join("")
+  btnContainer.innerHTML = categoryBtns;
+  const filterBtns = btnContainer.querySelectorAll(".filter-btn")
+
+  //filter projects using btns
+filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+       const category = e.currentTarget.dataset.category;
+       const projectCategory = projects.filter(function(projectItem){
+          // console.log(projectItem.category)
+          if(projectItem.category === category){
+                return projectItem
+          }
+        
+       });
+      //  console.log(projectCategory)
+        if(category === 'all'){
+           displayProjectItems(projects)
+        }
+        else{
+           displayProjectItems(projectCategory)
+        }
+    });
+  });
 }

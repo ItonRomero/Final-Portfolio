@@ -68,7 +68,9 @@ section{
 .about .about-content,
 .services .serv-content,
 .skills .skills-content,
-.contact .contact-content{
+.contact .contact-content, 
+.items .serv-content{
+
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -109,7 +111,7 @@ section .title::after{
 .navbar{
     position: fixed;
     width: 100%;
-    z-index: 999;
+    z-index: 99;
     padding: 30px 0;
     font-family: 'Ubuntu', sans-serif;
     transition: all 0.3s ease;
@@ -185,7 +187,7 @@ section .title::after{
     text-align: center;
     line-height: 45px;
     color: var(--foreground);
-    z-index: 9999;
+    z-index: 99;
     font-size: 30px;
     border-radius: 6px;
     border-bottom-width: 2px;
@@ -314,6 +316,102 @@ section .title::after{
     content: "Recent Projects";
     
 }
+
+.project .btn-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.project .btn-container button {
+    display: inline-block;
+    color: var(--foreground);
+    background: none;
+    font-size: 15px;
+    padding: 10px 20px;
+    margin-right: 15px; 
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid var(--clr-accent);
+    transition: all 0.3s ease;
+    text-transform:capitalize;
+}
+
+.project .btn-container button:hover {
+    background: var(--clr-accent);
+     border: 1px solid var(--clr-accent);
+}
+
+.project-container {
+    width: 100%;
+    height: 100vh;
+    background:rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content:center;
+    z-index: 100;
+}
+
+.project-left-part {
+    width: 90%;
+    
+}
+
+.project .carousel .card{
+    background: var(--background);
+    max-width: 1300px;
+    width: 100%;
+    /* height: 70%; */
+    border-radius: 6px;
+    padding: 15px;
+    text-align: center; 
+    /* overflow: hidden; */
+    display: flex;
+    justify-content: center; 
+    
+    transition: all 0.3s ease;
+    
+}
+
+.project .carousel .card:hover{
+    background: var(--clr-accent);
+}
+
+.project .carousel .card .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.project .carousel .card img{
+   
+    object-fit: cover;
+    border: 2px solid var(--clr-accent);
+    transition: all 0.3s ease;
+}
+
+.project .carousel .card:hover img{
+    border: 1px solid var(--foreground);
+}
+
+.project .project-container span{
+      position: absolute;
+      top: 2%;
+      right: 5%;
+      font-size: 30px;
+      color: var(--foreground);
+      cursor: pointer;
+}
+
+.project .project-container span:hover {
+    color: var(--clr-accent);
+}
+
+/* 
 .project .carousel .card{
     background: var(--background);
     border-radius: 6px;
@@ -359,7 +457,7 @@ section .title::after{
     font-size: 10px;
     padding: 10px 36px;
     margin-top: 15px;
-    /* font-weight: 400; */
+    /* font-weight: 400;
     border-radius: 6px;
     border: 1px solid var(--foreground);
     transition: all 0.3s ease;
@@ -368,7 +466,7 @@ section .title::after{
     color: var(--foreground);
     border: 1px solid var(--background);
     background: var(--background);   
-}
+} */
 
 
 
@@ -396,13 +494,59 @@ section .title::after{
 
 
 
+.projects-section .card {
+    width: calc(34% - 20px);
+  
+    background: var(--background);
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 10px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px 10px 0;
+}
 
+.projects-section .card:hover{
+    background: var(--clr-accent);
+}
 
+.projects-section .card .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.projects-section .card:hover .box{
+    transform: scale(1.05); 
+}
+
+.projects-section .card .box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border: 2px solid var(--clr-accent);
+    transition: all 0.3s ease;
+}
+
+.projects-section .card .text {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.project .projects-section {
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:flex-start;
+}
 
 
 
 /* services section styling */
-.services, .project, .about, .contact {
+.services, .project, .about, .contact, .items {
     border: 10px solid var(--background);
     color: var(--foreground);
     background: linear-gradient(120deg, var(--clr-primary), var(--clr-secondary));
@@ -691,7 +835,6 @@ footer span a:hover{
     border-radius: 6px;
     padding:  0;
     text-align: center;
-   
     transition: all 0.3s ease;
     
 }
@@ -713,14 +856,31 @@ footer span a:hover{
     border: 2px solid var(--clr-accent);
     transition: all 0.3s ease;
 }
-.project .carousel .card:hover img{
-    border: 1px solid var(--foreground);
+
+
+
+
+
+
+
+
+.items .serv-content .card {
+    text-align: none;
 }
 
+.items .serv-content img  {
+    max-width: 370px;
+    width: 100%;
+}
 
+.items .serv-content .tablet  {
+    max-width: 150px;
+    width: 100%;
+}
 
-
-
+.items .info {
+    text-align: center;
+}
 
 
 
@@ -797,9 +957,11 @@ footer span a:hover{
     .about .about-content .right{
         flex: 100%;
     }
-    .services .serv-content .card{
+    .services .serv-content .card,
+    .projects-section .card 
+    {
         width: calc(50% - 10px);
-        margin-bottom: 20px;
+        margin-bottom: 20px; 
     }
     .skills .skills-content .column,
     .contact .contact-content .column{
@@ -821,7 +983,9 @@ footer span a:hover{
     .home .home-content a{
         font-size: 20px;
     }
-    .services .serv-content .card{
+    .services .serv-content .card,
+     .projects-section .card 
+     {
         width: 100%;
     }
 }
@@ -854,6 +1018,7 @@ footer span a:hover{
         width: 35px;
         font-size: 23px;
         line-height: 38px;
+       
     }
 }
 
