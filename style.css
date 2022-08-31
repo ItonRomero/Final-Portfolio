@@ -329,6 +329,7 @@ section .title::after{
     font-size: 15px;
     padding: 10px 20px;
     margin-right: 15px; 
+    margin-bottom: 10px;
     font-weight: 500;
     border-radius: 6px;
     border: 1px solid var(--clr-accent);
@@ -341,157 +342,128 @@ section .title::after{
      border: 1px solid var(--clr-accent);
 }
 
+
 .project-container {
-    width: 100%;
-    height: 100vh;
-    background:rgba(0, 0, 0, 0.9);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none;
-    align-items: center;
-    justify-content:center;
-    z-index: 100;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
 }
 
-.project-left-part {
-    width: 90%;
-    
+/* ------- SINGLE PROJECY DETAILS PAGE -------- */
+.small-container {
+  max-width: 100%;
+  margin:50px auto;
+  padding: 0 25px;
+  background: var(--background)
+}
+.project-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.col-2 {
+  flex-basis: 50%;
+  min-width: 360px;
 }
 
-.project .carousel .card{
-    background: var(--background);
-    max-width: 1300px;
-    width: 100%;
-    /* height: 70%; */
-    border-radius: 6px;
-    padding: 15px;
-    text-align: center; 
-    /* overflow: hidden; */
-    display: flex;
-    justify-content: center; 
-    
-    transition: all 0.3s ease;
-    
+
+
+.col-2 img {
+  max-width: 100%;
+  padding: 50px 0;
+}
+.single-project {
+  margin-top: 80px;
+}
+.single-project .col-2 img {
+  padding: 0;
+}
+.single-project .col-2 {
+  padding: 20px;
+}
+.single-project h1 {
+  margin: 0 0 20px 0;
+  font-size:  22px;
+  
 }
 
-.project .carousel .card:hover{
-    background: var(--clr-accent);
+.single-project h3 {
+  margin: 10px 0 0 0;
+  font-size:  20px;
+  
 }
 
-.project .carousel .card .box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+.single-project p {
+    margin-right: 20px;
+}
+.single-project .btn {
+  display: inline-block;
+  background: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--clr-accent);
+  padding: 8px 30px;
+  margin: 10px 10px;
+  border-radius: 30px;
+  transition: background 0.5s ease;
 }
 
-.project .carousel .card img{
-   
-    object-fit: cover;
-    border: 2px solid var(--clr-accent);
-    transition: all 0.3s ease;
+.single-project .btn:hover {
+
+  background: var(--clr-accent);
+  color: var(--clr-foreground);
+  border: 1px solid var(--clr-accent);
+
 }
 
-.project .carousel .card:hover img{
-    border: 1px solid var(--foreground);
+.single-project svg {
+  color: var(--foreground);
+   margin-left: 10px; 
+}
+.small-img-row {
+  display: flex;
+  justify-content: space-between;
+}
+.small-img-col {
+  flex-basis: 24%;
+  cursor: pointer;
+}
+.small-img-col img {
+  border: 3px solid var(--foreground);
 }
 
-.project .project-container span{
+.small-img-col img:hover {
+  border: 3px solid var(--clr-accent);
+  transform: scale(1.05); 
+}
+
+.single-project span {
+    color: var(--clr-accent);
+}
+
+
+.project .project-container .closeProject{
       position: absolute;
       top: 2%;
       right: 5%;
       font-size: 30px;
-      color: var(--foreground);
+      color: var(--clr-accent);
+      border: 1px solid var(--clr-accent);
       cursor: pointer;
+      padding: 3px 5px;
 }
 
-.project .project-container span:hover {
-    color: var(--clr-accent);
-}
-
-/* 
-.project .carousel .card{
-    background: var(--background);
-    border-radius: 6px;
-    padding: 15px 0 30px 0;
-    text-align: center;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    
-}
-.project .carousel .card:hover{
-    background: var(--clr-accent);
-}
-.project .carousel .card .box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-.project .carousel .card:hover .box{
-    transform: scale(1.05); 
-}
-
-.project .carousel .card .text{
-    font-size: 25px;
-    font-weight: 500;
-    margin: 10px 0 7px 0;
-}
-.project .carousel .card img{
-    height: 240px;
-    width: 95%;
-    object-fit: cover;
-    border: 2px solid var(--clr-accent);
-    transition: all 0.3s ease;
-}
-.project .carousel .card:hover img{
-    border: 1px solid var(--foreground);
-}
-
-.project .btn a{
-    display: inline-block;
-    color: var(--foreground);
-    font-size: 10px;
-    padding: 10px 36px;
-    margin-top: 15px;
-    /* font-weight: 400;
-    border-radius: 6px;
-    border: 1px solid var(--foreground);
-    transition: all 0.3s ease;
-}
-.project .btn:hover a {
-    color: var(--foreground);
-    border: 1px solid var(--background);
-    background: var(--background);   
-} */
-
-
-
-.owl-dots{
-    text-align: center;
-    margin-top: 20px;
-}
-.owl-dot{
-    height: 13px;
-    width: 13px;
-    margin: 0 5px;
-    outline: none!important;
-    border-radius: 50%;
-    border: 2px solid  var(--clr-accent)!important;
-    transition: all 0.3s ease;
-}
-.owl-dot.active{
-    width: 35px;
-    border-radius: 14px;
-}
-.owl-dot.active,
-.owl-dot:hover{
-    background: var(--clr-accent)!important;
-}
-
+.project .project-container .closeProject:hover {
+    color: var(--background);
+    background: var(--clr-foreground);
+} 
 
 
 .projects-section .card {
@@ -611,6 +583,7 @@ section .title::after{
 .about .about-content .left img{
     height: 400px;
     width: 400px;
+    min-width: 280px;
     object-fit: cover; 
     border-radius: 6px;
 }

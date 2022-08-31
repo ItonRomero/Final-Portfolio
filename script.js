@@ -1,72 +1,3 @@
-$(document).ready(function(){
-    $(window).scroll(function(){
-        // sticky navbar on scroll script
-        if(this.scrollY > 20){
-            $('.navbar').addClass("sticky");
-        }else{
-            $('.navbar').removeClass("sticky");
-        }
-        
-        // scroll-up button show/hide script
-        if(this.scrollY > 500){
-            $('.scroll-up-btn').addClass("show");
-        }else{
-            $('.scroll-up-btn').removeClass("show");
-        }
-    });
-
-    // slide-up script
-    $('.scroll-up-btn').click(function(){
-        $('html').animate({scrollTop: 20});
-        // removing smooth scroll on slide-up button click
-        $('html').css("scrollBehavior", "auto");
-    });
-
-    $('.navbar .menu li a').click(function(){
-        // applying again smooth scroll on menu items click
-        $('html').css("scrollBehavior", "smooth");
-    });
-
-    // toggle menu/navbar script
-    $('.menu-btn').click(function(){
-        $('.navbar .menu').toggleClass("active");
-        $('.menu-btn i').toggleClass("active");
-    });
-
-    // typing text animation script
-    var typed = new Typed(".typing", {
-        strings: ["Web Developer", "Designer", "Freelancer"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-
-    var typed = new Typed(".typing-2", {
-        strings: ["Web Developer", "Designer", "Freelancer"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-
-    // owl carousel script
-
-   //owl carousel script
-    $('.carousel').owlCarousel({
-
-      margin: 20,
-      loop: true,
-      autoplayTimeOut: 2000,
-      autoplayHoverPause: true,
-      responsive: {
-        0:{
-          items: 1,
-          nav: false
-        }
-      }
-
-    });
-
-});
 
 
 let lightMode = localStorage.getItem('lightMode'); 
@@ -152,40 +83,39 @@ function opentab(tabname) {
 }
 
 
-
-const projects = [
+        const projects = [
         {
           id: 1,
           title: "My Portfolio",
-          img1: "img/Portfolio-homepage.jpeg",
-          img2: "img/Portfolio-homepage.jpeg",
-          img3: "img/Portfolio-homepage.jpeg",
-          img4: "img/Portfolio-homepage.jpeg",
-          technologies: "FasionWeb",
+          img1: "img/MyPortfolio-Thumbnail.jpg",
+          img2: "img/MyPortfolio-Thumbnail-light.jpg",
+          img3: "img/MyPortfolio-Thumbnail.jpg",
+          img4: "img/MyPortfolio-Thumbnail-light.jpg",
+          technologies: "HTML, CSS, JavaScript",
           desc: "FasionWeb",
-          category: "portfolio"         
+          category: "Portfolio"         
         },
          {
           id: 2,
           title: "Ecommerce",
           img1: "img/Ecommerce-homepage.jpeg",
-          img2: "img/Ecommerce-homepage.jpeg",
+          img2: "img/FasionWeb-project.jpeg",
           img3: "img/Ecommerce-homepage.jpeg",
           img4: "img/Ecommerce-homepage.jpeg",
           technologies: "FasionWeb",
-          desc: "FasionWeb",
-          category: "ecommerce"         
+          desc: "HTML, CSS, JavaScript",
+          category: "Ecommerce"         
         },
          {
           id: 3 ,
           title: "Fashion Website",
           img1: "img/FasionWeb-project.jpeg",
-          img2: "img/FasionWeb-project.jpeg",
+          img2: "img/Portfolio-homepage.jpeg",
           img3: "img/FasionWeb-project.jpeg",
           img4: "img/FasionWeb-project.jpeg",
-          technologies: "FasionWeb",
-          desc: "FasionWeb",
-          category: "landing-page"         
+          technologies: "HTML, CSS, JavaScript",
+          desc: "HTML, CSS, JavaScript",
+          category: "Landing-page"         
         }
         
       
@@ -204,6 +134,9 @@ const btnContainer = document.querySelector(".btn-container")
  window.addEventListener("DOMContentLoaded", function () {
    displayProjectItems(projects);
    displayCategoriesBtns();
+
+  
+
 });
 
  
@@ -214,19 +147,47 @@ const btnContainer = document.querySelector(".btn-container")
 
 function displayProjectItems(projectItems) {
      let displayProjects = projectItems.map(function (item) {
-        console.log(item)
+        // console.log(item)
 
         return `<div class="card">
                     <div class="box">
-                        <img src=${item.img1} alt="test" class="photo" data-id=${item.id}/>
+                        <img src=${item.img1} alt="test" class="photo" data-id=${item.category} />
                         <div class="text">${item.title}</div>
                     </div>
                 </div>`;
     });
+        
        displayProjects = displayProjects.join("")
-        projectSection.innerHTML = displayProjects
-      //  console.log(displayProjects)
+       projectSection.innerHTML = displayProjects
+        // selectImg()
+
+        const eachImgs = document.querySelectorAll('.photo')
+         eachImgs.forEach(function (img) {
+        img.addEventListener("click", function(e){
+            
+            // filter
+             const category = e.currentTarget.dataset.id
+              console.log(category)
+             const projectTitle = projects.filter(function (projectItems) {
+
+                if (projectItems.category === category) {
+                    console.log(projectItems.category)
+                    return projectItems
+                }
+             })
+            displaySelectedProject(projectTitle)
+             
+             projectContainer.style.display = "flex"
+             removeProjectDetails()
+             changeImg()
+        })
+    })
+
 }
+
+// function selectImg(){
+    
+// }
 
 
 function displayCategoriesBtns() {
@@ -244,15 +205,17 @@ function displayCategoriesBtns() {
   .join("")
   btnContainer.innerHTML = categoryBtns;
   const filterBtns = btnContainer.querySelectorAll(".filter-btn")
-
+  
   //filter projects using btns
 filterBtns.forEach(function(btn){
     btn.addEventListener('click', function(e){
        const category = e.currentTarget.dataset.category;
        const projectCategory = projects.filter(function(projectItem){
-          // console.log(projectItem.category)
+        
           if(projectItem.category === category){
+                     console.log(projectItem.id) 
                 return projectItem
+               
           }
         
        });
@@ -266,3 +229,158 @@ filterBtns.forEach(function(btn){
     });
   });
 }
+
+
+
+
+  function displaySelectedProject(selectedProjects) {
+      let displayproject = selectedProjects.map(function (item) {
+          // console.log(item)
+          return ` <span class="closeProject">X</span>
+                    <div class="small-container single-project">
+			            <div class="project-row">
+                            <div class="col-2">
+                                <img src=${item.img1} alt="gallery 1" id="product-img">
+                        
+                                <div class="small-img-row">
+                                    <div class="small-img-col">
+                                        <img src=${item.img1} alt="gallery 1" class="small-img">
+                                    </div>
+                                    <div class="small-img-col">
+                                        <img src=${item.img2} alt="gallery 1" class="small-img">
+                                    </div>
+                                    <div class="small-img-col">
+                                        <img src=${item.img3} alt="gallery 1" class="small-img">
+                                    </div>
+                                    <div class="small-img-col">
+                                        <img src=${item.img4} alt="gallery 1" class="small-img">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-2">
+                                <p>${item.category}</p>
+                                <h1 class="fw-bold"><span>${item.title}</span></h1>
+                                
+                                <h3 class="fw-bold">URL: <a href="" class="btn"><span>Unavailable<span></a></h3> 
+                                <h3 class="fw-bold">Technologies:<span>${item.technologies}</span></h3>
+                                <h3 class="fw-bold">Project Details  <i class="fa fa-indent"></i></h3>  
+                                <br>
+                                <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quaerat possimus aut iure</span></p>
+                            </div>
+                        </div>
+                    </div>`
+      });
+      displayproject = displayproject.join("")
+      projectContainer.innerHTML = displayproject
+      console.log(displayproject)
+  };
+
+
+  function removeProjectDetails() {
+    const exBtn = document.querySelector(".closeProject")
+    exBtn.addEventListener('click', function() {
+       projectContainer.style.display = "none"
+    })
+  }
+
+
+
+  	// -------- JS FOR PROJECT DETAILS ----------
+function changeImg(){
+  const productImg = document.querySelector('#product-img')
+  const smallImg = document.querySelectorAll('.small-img')
+  console.log(smallImg)
+
+  smallImg[0].addEventListener('click', () => {
+    productImg.src = smallImg[0].src;
+  })
+  smallImg[1].addEventListener('click', () => {
+    productImg.src = smallImg[1].src;
+  })
+  smallImg[2].addEventListener('click', () => {
+    productImg.src = smallImg[2].src;
+  })
+  smallImg[3].addEventListener('click', () => {
+    productImg.src = smallImg[3].src;
+  })
+}
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function(){
+    $(window).scroll(function(){
+        // sticky navbar on scroll script
+        if(this.scrollY > 20){
+            $('.navbar').addClass("sticky");
+        }else{
+            $('.navbar').removeClass("sticky");
+        }
+        
+        // scroll-up button show/hide script
+        if(this.scrollY > 500){
+            $('.scroll-up-btn').addClass("show");
+        }else{
+            $('.scroll-up-btn').removeClass("show");
+        }
+    });
+
+    // slide-up script
+    $('.scroll-up-btn').click(function(){
+        $('html').animate({scrollTop: 20});
+        // removing smooth scroll on slide-up button click
+        $('html').css("scrollBehavior", "auto");
+    });
+
+    $('.navbar .menu li a').click(function(){
+        // applying again smooth scroll on menu items click
+        $('html').css("scrollBehavior", "smooth");
+    });
+
+    // toggle menu/navbar script
+    $('.menu-btn').click(function(){
+        $('.navbar .menu').toggleClass("active");
+        $('.menu-btn i').toggleClass("active");
+    });
+
+    // typing text animation script
+    var typed = new Typed(".typing", {
+        strings: ["Web Developer", "Designer", "Freelancer"],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true
+    });
+
+    var typed = new Typed(".typing-2", {
+        strings: ["Web Developer", "Designer", "Freelancer"],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true
+    });
+
+    // owl carousel script
+
+   //owl carousel script
+    $('.carousel').owlCarousel({
+
+      margin: 20,
+      loop: true,
+      autoplayTimeOut: 2000,
+      autoplayHoverPause: true,
+      responsive: {
+        0:{
+          items: 1,
+          nav: false
+        }
+      }
+
+    });
+
+});
