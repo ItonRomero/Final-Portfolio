@@ -89,8 +89,8 @@ function opentab(tabname) {
           title: "My Portfolio",
           img1: "img/MyPortfolio-Thumbnail.jpg",
           img2: "img/MyPortfolio-Thumbnail-light.jpg",
-          img3: "img/MyPortfolio-Thumbnail.jpg",
-          img4: "img/MyPortfolio-Thumbnail-light.jpg",
+          img3: "img/MyPortfolio-Thumbnail-light-Sscreen.jpg",
+          img4: "img/MyPortfolio-Thumbnail-Sscreen.jpg",
           technologies: "HTML, CSS, JavaScript",
           desc: "FasionWeb",
           category: "Portfolio"         
