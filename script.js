@@ -98,10 +98,10 @@ function opentab(tabname) {
          {
           id: 2,
           title: "Ecommerce",
-          img1: "img/Ecommerce-homepage.jpeg",
-          img2: "img/FasionWeb-project.jpeg",
-          img3: "img/Ecommerce-homepage.jpeg",
-          img4: "img/Ecommerce-homepage.jpeg",
+          img1: "img/RedStore-Thumbnail.jpeg",
+          img2: "img/RedStore-Thumbnail-2nd.jpeg",
+          img3: "img/RedStore-Thumbnail-3rd.jpeg",
+          img4: "img/RedStore-Thumbnail-4th.jpeg",
           technologies: "FasionWeb",
           desc: "HTML, CSS, JavaScript",
           category: "Ecommerce"         
