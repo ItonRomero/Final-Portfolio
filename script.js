@@ -97,17 +97,17 @@ function opentab(tabname) {
         },
          {
           id: 2,
-          title: "Ecommerce",
+          title: "RedStore Ecommerce",
           img1: "img/RedStore-Thumbnail.jpeg",
           img2: "img/RedStore-Thumbnail-2nd.jpeg",
           img3: "img/RedStore-Thumbnail-3rd.jpeg",
           img4: "img/RedStore-Thumbnail-4th.jpeg",
-          technologies: "FasionWeb",
+          technologies: "HTML, CSS, JavaScript",
           desc: "HTML, CSS, JavaScript",
           category: "Ecommerce"         
         },
          {
-          id: 3 ,
+          id: 3,
           title: "Fashion Website",
           img1: "img/FasionWeb-project.jpeg",
           img2: "img/Portfolio-homepage.jpeg",
@@ -115,7 +115,18 @@ function opentab(tabname) {
           img4: "img/FasionWeb-project.jpeg",
           technologies: "HTML, CSS, JavaScript",
           desc: "HTML, CSS, JavaScript",
-          category: "Landing-page"         
+          category: "Ecommerce"         
+        },
+        {
+          id: 4,
+          title: "Xypo Business Website",
+          img1: "img/Xypo-Thumbnail-1st.jpg",
+          img2: "img/Xypo-Thumbnail-2nd.jpg",
+          img3: "img/Xypo-Thumbnail-3rd.jpg",
+          img4: "img/Xypo-Thumbnail-4th.jpg",
+          technologies: "HTML, CSS, JavaScript",
+          desc: "HTML, CSS, JavaScript",
+          category: "Business-Website"         
         }
         
       
@@ -140,56 +151,47 @@ const btnContainer = document.querySelector(".btn-container")
 });
 
  
-
-
-
-
-
+ // -------- JS FOR DISPLAYING ALL PROJECT ---------- 
 function displayProjectItems(projectItems) {
      let displayProjects = projectItems.map(function (item) {
-        // console.log(item)
 
         return `<div class="card">
                     <div class="box">
-                        <img src=${item.img1} alt="test" class="photo" data-id=${item.category} />
+                        <img src=${item.img1} alt="test" class="photo" data-id=${item.id} />
                         <div class="text">${item.title}</div>
                     </div>
                 </div>`;
-    });
+    }); 
         
        displayProjects = displayProjects.join("")
        projectSection.innerHTML = displayProjects
-        // selectImg()
-
+    
+         // -------- JS FOR DISPLAYING SELECTED PROJECT ---------- 
         const eachImgs = document.querySelectorAll('.photo')
          eachImgs.forEach(function (img) {
         img.addEventListener("click", function(e){
             
-            // filter
+            // filtering
              const category = e.currentTarget.dataset.id
-              console.log(category)
+             console.log(category)
              const projectTitle = projects.filter(function (projectItems) {
 
-                if (projectItems.category === category) {
-                    console.log(projectItems.category)
+                if (projectItems.id == category) {
                     return projectItems
                 }
              })
-            displaySelectedProject(projectTitle)
-             
+         
+             displaySelectedProject(projectTitle)
              projectContainer.style.display = "flex"
              removeProjectDetails()
-             changeImg()
+            changeImg()
         })
     })
 
 }
 
-// function selectImg(){
-    
-// }
 
-
+ // -------- JS FOR DISPLAYING ALL CATEGORY PROJECT BTNS ---------- 
 function displayCategoriesBtns() {
       const categories = projects.reduce(function(values,item){
      if(!values.includes(item.category)){
@@ -206,20 +208,18 @@ function displayCategoriesBtns() {
   btnContainer.innerHTML = categoryBtns;
   const filterBtns = btnContainer.querySelectorAll(".filter-btn")
   
-  //filter projects using btns
+ // -------- JS FOR FILTERING DISPLAY PROJECTS USING BTNS ---------- 
 filterBtns.forEach(function(btn){
     btn.addEventListener('click', function(e){
        const category = e.currentTarget.dataset.category;
        const projectCategory = projects.filter(function(projectItem){
         
           if(projectItem.category === category){
-                     console.log(projectItem.id) 
                 return projectItem
                
           }
         
        });
-      //  console.log(projectCategory)
         if(category === 'all'){
            displayProjectItems(projects)
         }
@@ -232,10 +232,9 @@ filterBtns.forEach(function(btn){
 
 
 
-
+// -------- JS FOR DISPLAYING SELECTED PROJECT ----------
   function displaySelectedProject(selectedProjects) {
       let displayproject = selectedProjects.map(function (item) {
-          // console.log(item)
           return ` <span class="closeProject">X</span>
                     <div class="small-container single-project">
 			            <div class="project-row">
@@ -266,17 +265,17 @@ filterBtns.forEach(function(btn){
                                 <h3 class="fw-bold">Technologies:<span>${item.technologies}</span></h3>
                                 <h3 class="fw-bold">Project Details  <i class="fa fa-indent"></i></h3>  
                                 <br>
-                                <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quaerat possimus aut iure</span></p>
+                                <p><span>${item.desc}</span></p>
                             </div>
                         </div>
                     </div>`
       });
       displayproject = displayproject.join("")
       projectContainer.innerHTML = displayproject
-      console.log(displayproject)
+      
   };
 
-
+// -------- JS FOR CLOSING SELECTED PROJECT ----------
   function removeProjectDetails() {
     const exBtn = document.querySelector(".closeProject")
     exBtn.addEventListener('click', function() {
@@ -286,11 +285,11 @@ filterBtns.forEach(function(btn){
 
 
 
-  	// -------- JS FOR PROJECT DETAILS ----------
+// -------- JS FOR PROJECT DETAILS ----------
 function changeImg(){
   const productImg = document.querySelector('#product-img')
   const smallImg = document.querySelectorAll('.small-img')
-  console.log(smallImg)
+  // console.log(smallImg)
 
   smallImg[0].addEventListener('click', () => {
     productImg.src = smallImg[0].src;
