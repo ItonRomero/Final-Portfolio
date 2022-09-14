@@ -87,46 +87,57 @@ function opentab(tabname) {
         {
           id: 1,
           title: "My Portfolio",
+          category: "Portfolio",
           img1: "img/MyPortfolio-Thumbnail.jpg",
           img2: "img/MyPortfolio-Thumbnail-light.jpg",
           img3: "img/MyPortfolio-Thumbnail-light-Sscreen.jpg",
           img4: "img/MyPortfolio-Thumbnail-Sscreen.jpg",
+          url: "",
+          sourcecode: "https://github.com/ItonRomero/Xypo-Business-Website",
           technologies: "HTML, CSS, JavaScript",
-          desc: "FasionWeb",
-          category: "Portfolio"         
+          desc: "FasionWeb"        
         },
          {
           id: 2,
           title: "RedStore Ecommerce",
+          category: "Ecommerce",
           img1: "img/RedStore-Thumbnail.jpeg",
           img2: "img/RedStore-Thumbnail-2nd.jpeg",
           img3: "img/RedStore-Thumbnail-3rd.jpeg",
           img4: "img/RedStore-Thumbnail-4th.jpeg",
+          url: "https://itonromero.github.io/Redstore.Ecommerce/",
+          sourcecode: "https://github.com/ItonRomero/Redstore.Ecommerce",
           technologies: "HTML, CSS, JavaScript",
-          desc: "HTML, CSS, JavaScript",
-          category: "Ecommerce"         
+          desc: "HTML, CSS, JavaScript"
+                  
         },
          {
           id: 3,
           title: "Fashion Website",
+          category: "Ecommerce", 
           img1: "img/FasionWeb-project.jpeg",
           img2: "img/Portfolio-homepage.jpeg",
           img3: "img/FasionWeb-project.jpeg",
           img4: "img/FasionWeb-project.jpeg",
+          url: "https://itonromero.github.io/Xypo-Business-Website/",
+          sourcecode: "https://github.com/ItonRomero/Xypo-Business-Website",
           technologies: "HTML, CSS, JavaScript",
-          desc: "HTML, CSS, JavaScript",
-          category: "Ecommerce"         
+          desc: "HTML, CSS, JavaScript"
+                
         },
         {
           id: 4,
           title: "Xypo Business Website",
+          category: "Business-Website", 
           img1: "img/Xypo-Thumbnail-1st.jpg",
           img2: "img/Xypo-Thumbnail-2nd.jpg",
           img3: "img/Xypo-Thumbnail-3rd.jpg",
           img4: "img/Xypo-Thumbnail-4th.jpg",
+          url: "https://itonromero.github.io/Xypo-Business-Website/",
+          sourcecode: "https://github.com/ItonRomero/Xypo-Business-Website",
           technologies: "HTML, CSS, JavaScript",
-          desc: "HTML, CSS, JavaScript",
-          category: "Business-Website"         
+          desc: "HTML, CSS, JavaScript"
+                  
         }
         
       
@@ -259,11 +270,11 @@ filterBtns.forEach(function(btn){
 
                             <div class="col-2">
                                 <p>${item.category}</p>
-                                <h1 class="fw-bold"><span>${item.title}</span></h1>
-                                
-                                <h3 class="fw-bold">URL: <a href="" class="btn"><span>Unavailable<span></a></h3> 
-                                <h3 class="fw-bold">Technologies:<span>${item.technologies}</span></h3>
-                                <h3 class="fw-bold">Project Details  <i class="fa fa-indent"></i></h3>  
+                                <h1><span>${item.title}</span></h1>
+                                <h3>URL: <a href="${item.url}" class="btn"><span>View<span></a></h3> 
+                                <h3>Source Code: <a href="${item.sourcecode}" class="btn"><span>View<span></a></h3> 
+                                <h3>Technologies:<br><span> ${item.technologies}</span></h3>
+                                <h3>Project Details  <i class="fa fa-indent"></i></h3>  
                                 <br>
                                 <p><span>${item.desc}</span></p>
                             </div>
