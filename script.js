@@ -87,7 +87,7 @@ function opentab(tabname) {
         {
           id: 1,
           title: "My Portfolio",
-          category: "Portfolio",
+          category: "Side-I'v-Made",
           img1: "img/MyPortfolio-Thumbnail.jpg",
           img2: "img/MyPortfolio-Thumbnail-light.jpg",
           img3: "img/MyPortfolio-Thumbnail-light-Sscreen.jpg",
@@ -128,7 +128,7 @@ function opentab(tabname) {
         {
           id: 4,
           title: "Xypo Business Website",
-          category: "Business-Website", 
+          category: "Ecommerce", 
           img1: "img/Xypo-Thumbnail-1st.jpg",
           img2: "img/Xypo-Thumbnail-2nd.jpg",
           img3: "img/Xypo-Thumbnail-3rd.jpg",
