@@ -52,7 +52,7 @@ html{
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
-
+/* =========================================================================== */
 /* all similar content styling codes */
 section{
     padding: 200px 0;
@@ -62,15 +62,17 @@ section{
     padding: 0 80px;
     margin: auto;
 }
-.about, .services, .skills, .project, .contact, footer{
+.about, .skills, .project, .contact, footer{
     font-family: 'Poppins', sans-serif;
 }
+.project, .about, .contact, .items {
+    border: 10px solid var(--background);
+    color: var(--foreground);
+    background: linear-gradient(120deg, var(--clr-primary), var(--clr-secondary));
+}
 .about .about-content,
-.services .serv-content,
 .skills .skills-content,
-.contact .contact-content, 
-.items .serv-content{
-
+.contact .contact-content{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -107,6 +109,7 @@ section .title::after{
     transform: translateX(-50%);
 }
 
+/* =========================================================================== */
 /* navbar styling */
 .navbar{
     position: fixed;
@@ -167,16 +170,17 @@ section .title::after{
 .navbar .menu li svg{
     color: var(--foreground);
 }
-
-
-
-/* menu btn styling */
+/* NavBar btn styling */
 .menu-btn{
     color: var(--foreground);
     font-size: 23px;
     cursor: pointer;
     display: none;
 }
+
+
+/* =========================================================================== */
+/* Scroll up Button  */
 .scroll-up-btn{
     position: fixed;
     height: 45px;
@@ -205,7 +209,7 @@ section .title::after{
     filter: brightness(90%);
 }
 
-
+/* ===================================================================  */
 /* home section styling */
 .home{
     display: flex;
@@ -217,7 +221,6 @@ section .title::after{
     background-attachment: fixed; 
     font-family: 'Ubuntu', sans-serif;
 }
-
 .home.light-bg {
     background: url("img/bg-light.jpg") no-repeat center;
     
@@ -226,8 +229,6 @@ section .title::after{
     background-attachment: fixed; 
     font-family: 'Ubuntu', sans-serif;
 }
-
-
 .home img{
   max-width: 100%;
   width: 100%;
@@ -279,8 +280,7 @@ section .title::after{
     color: var(--clr-accent);
     background: none;
 }
-
- .home .home-content .social-media {
+.home .home-content .social-media {
     list-style: none;
     display: flex;
     justify-content: flex-start;
@@ -290,7 +290,6 @@ section .title::after{
      transition: all 0.3s ease;
      margin: 0;
      padding: 1rem 2rem 0 0;
-    
 }
 .home .home-content .social-media li a {
     text-decoration: none;  
@@ -299,280 +298,15 @@ section .title::after{
 .home .home-content .social-media li a svg{
     color: var(--foreground);
 }
- 
 .home .home-content .social-media li:hover {
     transform: scale(1.5);
     color: var(--clr-accent);
   }
-
 .home .home-content .social-media li:hover a svg{
     color: var(--clr-accent);
 }
 
-
-
-/* PROJECT  section styling */
-.project .title::after{
-    content: "Recent Projects";
-    
-}
-
-.project .btn-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.project .btn-container button {
-    display: inline-block;
-    color: var(--foreground);
-    background: none;
-    font-size: 15px;
-    padding: 10px 20px;
-    margin-right: 15px; 
-    margin-bottom: 10px;
-    font-weight: 500;
-    border-radius: 6px;
-    border: 1px solid var(--clr-accent);
-    transition: all 0.3s ease;
-    text-transform:capitalize;
-}
-
-.project .btn-container button:hover {
-    background: var(--clr-accent);
-     border: 1px solid var(--clr-accent);
-}
-
-
-.project-container {
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.9);
-      position: fixed;
-      top: 0;
-      left: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-}
-
-/* ------- SINGLE PROJECY DETAILS PAGE -------- */
-.small-container {
-  max-width: 100%;
-  margin:50px auto;
-  padding: 0 25px;
-  background: var(--background)
-}
-.project-row {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.col-2 {
-  flex-basis: 50%;
-  min-width: 360px;
-}
-
-
-
-.col-2 img {
-  max-width: 100%;
-  padding: 50px 0;
-}
-.single-project {
-  margin-top: 80px;
-}
-.single-project .col-2 img {
-  padding: 0;
-}
-.single-project .col-2 {
-  padding: 20px;
-}
-.single-project h1 {
-  margin: 0 0 20px 0;
-  font-size:  22px;
-  
-}
-
-.single-project h3 {
-  margin: 10px 0 0 0;
-  font-size:  20px;
-  
-}
-
-.single-project p {
-    margin-right: 20px;
-}
-.single-project .btn {
-  display: inline-block;
-  background: var(--background);
-  color: var(--foreground);
-  border: 1px solid var(--clr-accent);
-  padding: 8px 30px;
-  margin: 10px 10px;
-  border-radius: 30px;
-  transition: background 0.5s ease;
-}
-
-.single-project .btn:hover {
-
-  background: var(--clr-accent);
-  color: var(--clr-foreground);
-  border: 1px solid var(--clr-accent);
-
-}
-
-.single-project svg {
-  color: var(--foreground);
-   margin-left: 10px; 
-}
-.small-img-row {
-  display: flex;
-  justify-content: space-between;
-}
-.small-img-col {
-  flex-basis: 24%;
-  cursor: pointer;
-}
-.small-img-col img {
-  border: 3px solid var(--foreground);
-}
-
-.small-img-col img:hover {
-  border: 3px solid var(--clr-accent);
-  transform: scale(1.05); 
-}
-
-.single-project span {
-    color: var(--clr-accent);
-}
-
-
-.project .project-container .closeProject{
-      position: absolute;
-      top: 2%;
-      right: 5%;
-      font-size: 30px;
-      color: var(--clr-accent);
-      border: 1px solid var(--clr-accent);
-      cursor: pointer;
-      padding: 3px 5px;
-}
-
-.project .project-container .closeProject:hover {
-    color: var(--background);
-    background: var(--clr-foreground);
-} 
-
-
-.projects-section .card {
-    width: calc(34% - 20px);
-  
-    background: var(--background);
-    text-align: center;
-    border-radius: 6px;
-    padding: 10px 10px 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin: 0 10px 10px 0;
-}
-
-.projects-section .card:hover{
-    background: var(--clr-accent);
-}
-
-.projects-section .card .box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.projects-section .card:hover .box{
-    transform: scale(1.05); 
-}
-
-.projects-section .card .box img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border: 2px solid var(--clr-accent);
-    transition: all 0.3s ease;
-}
-
-.projects-section .card .text {
-    margin-top: 20px;
-    font-size: 20px;
-}
-
-.project .projects-section {
-
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content:flex-start;
-}
-
-
-
-/* services section styling */
-.services, .project, .about, .contact, .items {
-    border: 10px solid var(--background);
-    color: var(--foreground);
-    background: linear-gradient(120deg, var(--clr-primary), var(--clr-secondary));
-}
-.services .title::before,
-.project .title::before{
-    
-    border-radius: 2px;
-    background: var(--clr-accent); 
-}
-.services .title::after
-{
-    background:  linear-gradient(var(--clr-primary), var(--clr-secondary));
-    content: "what I provide";
-}
-.services .serv-content .card{
-    width: calc(33% - 20px);
-    background: var(--background);
-    text-align: center;
-    border-radius: 6px;
-    padding: 50px 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.services .serv-content .card:hover{
-    background: var(--clr-accent);
-}
-.services .serv-content .card .box{
-    transition: all 0.3s ease;
-}
-.services .serv-content .card:hover .box{
-    transform: scale(1.05);
-}
-.services .serv-content .card svg{
-    font-size: 50px;
-    color: var(--clr-accent);
-    transition: color 0.3s ease;
-}
-.services .serv-content .card:hover svg{
-    color: var(--foreground);
-}
-.services .serv-content .card .text{
-    font-size: 25px;
-    font-weight: 500;
-    margin: 10px 0 7px 0;
-}
-
-
-
-
-
-
-
-
+/* =========================================================================== */
 /* about section styling */
 .about .title::after{
     content: "who I am";
@@ -617,23 +351,22 @@ section .title::after{
     color: var(--clr-accent);
     background: none;
 }
-
-
 .about .about-content .tab-titles {
     display: flex;
     flex-wrap: wrap;
     margin:  15px 0 50px;
-  }
-  
-  .about .about-content .tab-titles .tab-links {
+}  
+.about .about-content .tab-titles .tab-links {
     margin-right: 50px;
     margin-bottom: 10px;
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
     position: relative;
-  }
-  .tab-links::after {
+}
+
+ /* tab links  */
+.tab-links::after {
     content: '';
     width: 0;
     height: 3px;
@@ -642,49 +375,231 @@ section .title::after{
     left: 0;
     bottom: -8px;
     transition: 0.5s ;
-  } 
-  .tab-links.active-link::after {
-      width: 50% ;
-  }
-  .tab-contents ul li {
+} 
+.tab-links.active-link::after {
+    width: 50% ;
+}
+.tab-contents ul li {
     list-style: none;
-  }
-  .tab-contents ul li span {
-     color: var(--clr-accent);
-  }
-  .tab-contents.technology ul {
+}
+.tab-contents ul li span {
+    color: var(--clr-accent);
+}
+.tab-contents.technology ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-  .tab-contents ul li svg {
+}
+.tab-contents ul li svg {
     font-size: 50px;
-  }
-  .tab-contents.trainings ul {
+}
+.tab-contents.trainings ul {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-  }
-  
-  .tab-contents.trainings ul li{
+}
+.tab-contents.trainings ul li{
     margin-right: 5px;
-  }
-  .tab-contents.trainings ul li img{
-      width: 350px;
-      height: 250px;
-      object-fit: fill;
-      max-width: 100%;
-      max-height: 100%;
-  }
-  .tab-contents {
+}
+.tab-contents.trainings ul li img{
+    width: 350px;
+    height: 250px;
+    object-fit: fill;
+    max-width: 100%;
+    max-height: 100%;
+}
+.tab-contents {
     display: none;
-  }
+}
   
-  .tab-contents.active-tab {
+.tab-contents.active-tab {
     display: block;
-  }
+}
 
 
+/* =========================================================================== */
+/* PROJECT  section styling */
+.project .title::after{
+    content: "Recent Projects";
+}
+.project .btn-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.project .btn-container button {
+    display: inline-block;
+    color: var(--foreground);
+    background: none;
+    font-size: 15px;
+    padding: 10px 20px;
+    margin-right: 15px; 
+    margin-bottom: 10px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid var(--clr-accent);
+    transition: all 0.3s ease;
+    text-transform:capitalize;
+}
+.project .btn-container button:hover {
+    background: var(--clr-accent);
+    border: 1px solid var(--clr-accent);
+}
+.project-container {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+/* ------- SINGLE PROJECT DETAILS PAGE -------- */
+.small-container {
+  max-width: 100%;
+  margin:50px auto;
+  padding: 0 25px;
+  background: var(--background)
+}
+.project-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.col-2 {
+  flex-basis: 50%;
+  min-width: 360px;
+}
+.col-2 img {
+  max-width: 100%;
+  padding: 50px 0;
+}
+.single-project {
+  margin-top: 80px;
+}
+.single-project .col-2 img {
+  padding: 0;
+}
+.single-project .col-2 {
+  padding: 20px;
+}
+.single-project h1 {
+  margin: 0 0 20px 0;
+  font-size:  22px;
+}
+.single-project h3 {
+  margin: 10px 0 0 0;
+  font-size:  20px;
+}
+.single-project p {
+    margin-right: 20px;
+}
+.single-project .btn {
+  display: inline-block;
+  background: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--clr-accent);
+  padding: 8px 30px;
+  margin: 10px 10px;
+  border-radius: 30px;
+  transition: background 0.5s ease;
+}
+.single-project .btn:hover {
+  background: var(--clr-accent);
+  color: var(--clr-foreground);
+  border: 1px solid var(--clr-accent);
+}
+.single-project svg {
+  color: var(--foreground);
+   margin-left: 10px; 
+}
+.small-img-row {
+  display: flex;
+  justify-content: space-between;
+}
+.small-img-col {
+  flex-basis: 24%;
+  cursor: pointer;
+}
+.small-img-col img {
+  border: 3px solid var(--foreground);
+}
+.small-img-col img:hover {
+  border: 3px solid var(--clr-accent);
+  transform: scale(1.05); 
+}
+.single-project span {
+    color: var(--clr-accent);
+}
+
+.project .project-container .closeProject{
+      position: absolute;
+      top: 2%;
+      right: 5%;
+      font-size: 30px;
+      color: var(--clr-accent);
+      border: 1px solid var(--clr-accent);
+      cursor: pointer;
+      padding: 3px 5px;
+}
+.project .project-container .closeProject:hover {
+    color: var(--background);
+    background: var(--clr-foreground);
+} 
+.projects-section .card {
+    width: calc(34% - 20px);
+    background: var(--background);
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 10px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px 10px 0;
+}
+.projects-section .card:hover{
+    background: var(--clr-accent);
+}
+.projects-section .card .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.projects-section .card:hover .box{
+    transform: scale(1.05); 
+}
+.projects-section .card .box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border: 2px solid var(--clr-accent);
+    transition: all 0.3s ease;
+}
+.projects-section .card .text {
+    margin-top: 20px;
+    font-size: 20px;
+}
+.project .projects-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:flex-start;
+}
+.project .title::before{
+    border-radius: 2px;
+    background: var(--clr-accent); 
+}
+
+
+
+
+
+
+/* =========================================================================== */
 /* Contact section styling */
 .contact .title::after{
     content: "get in touch";
@@ -780,6 +695,8 @@ section .title::after{
   color: var(--clr-accent);
   background: none;
 }
+
+/* =========================================================================== */
 /* footer section styling */
 footer{
     background: var(--clr-primary);
@@ -794,67 +711,6 @@ footer span a{
 footer span a:hover{
     text-decoration: underline;
 }
-
-
-
-
-/* PROJECT PORTFOLIO section styling */
-.project.portfolio .title::after{
-    content: "";
-    
-}
-.project.portfolio .carousel .card{
-    background: none;
-    border-radius: 6px;
-    padding:  0;
-    text-align: center;
-    transition: all 0.3s ease;
-    
-}
-.project.portfolio .carousel .card:hover{
-    background:  none;
-}
-.project.portfolio .carousel .card .box{
-    /* display: block; */
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.project.portfolio .carousel .card img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border: 2px solid var(--clr-accent);
-    transition: all 0.3s ease;
-}
-
-
-
-
-
-
-
-
-.items .serv-content .card {
-    text-align: none;
-}
-
-.items .serv-content img  {
-    max-width: 370px;
-    width: 100%;
-}
-
-.items .serv-content .tablet  {
-    max-width: 150px;
-    width: 100%;
-}
-
-.items .info {
-    text-align: center;
-}
-
 
 
 
@@ -909,13 +765,6 @@ footer span a:hover{
     .home .home-content .text-3{
         font-size: 35px;
     }
-    /* .home .home-content .social-media a{
-         
-    }
-    .home .home-content a{
-        font-size: 23px;
-        padding: 10px 30px; 
-    } */
     .max-width{
         max-width: 930px;
     }
@@ -930,7 +779,6 @@ footer span a:hover{
     .about .about-content .right{
         flex: 100%;
     }
-    .services .serv-content .card,
     .projects-section .card 
     {
         width: calc(50% - 10px);
@@ -956,9 +804,8 @@ footer span a:hover{
     .home .home-content a{
         font-size: 20px;
     }
-    .services .serv-content .card,
-     .projects-section .card 
-     {
+    .projects-section .card 
+    {
         width: 100%;
     }
 }
@@ -996,16 +843,11 @@ footer span a:hover{
 }
 
 @media (min-width: 1300px) {
-
-  
 .home .home-content .social-media {
       display: block;
       position: fixed;
       top: 40vh;
       left: 2.5rem;
      }
-  
-
-   
   }
   
